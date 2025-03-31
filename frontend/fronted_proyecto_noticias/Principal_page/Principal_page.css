@@ -1,0 +1,42 @@
+/* Fondo general */
+body {
+    background-color: #f4f4f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Ajustes al navbar */
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+  
+  #btn-crear-noticia i {
+    margin-right: 5px;
+  }
+  
+  /* Sección de cards */
+  .card {
+    border-radius: 8px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: translateY(-3px);
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  .card-text {
+    font-size: 0.95rem;
+    color: #555;
+  }
+  
+  /* Botones */
+  .btn-warning i, .btn-danger i {
+    margin-right: 5px;
+  }
+  

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión - Noticias Hoy</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/fcdb2982df.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body class="d-flex justify-content-center align-items-center vh-100">
+  <div class="login-container">
+    <h1 class="site-logo text-primary text-center mb-2">Noticias Hoy</h1>
+    <p class="text-center">Tu fuente confiable de noticias</p>
+    <div class="text-center fs-1 login-title">Iniciar sesión</div>
+    <div class="form-group position-relative mt-4">
+      <span class="position-absolute input-icon">
+        <i class="fas fa-user"></i>
+      </span>
+      <input 
+        class="form-control pl-5" 
+        type="text" 
+        placeholder="Usuario" 
+        name="username" 
+        aria-label="Usuario"
+      >
+    </div>
+    <div class="form-group position-relative mt-3">
+      <span class="position-absolute input-icon">
+        <i class="fas fa-lock"></i>
+      </span>
+      <input 
+        type="password" 
+        placeholder="Contraseña" 
+        class="form-control pl-5 pr-5" 
+        name="password" 
+        aria-label="Contraseña"
+      >
+      <span class="position-absolute input-icon-right toggle-password" title="Mostrar/ocultar contraseña">
+        <i class="fas fa-eye"></i>
+      </span>
+    </div>
+
+    <div class="mt-4">
+      <button class="btn btn-primary w-100" id="login-button">Iniciar sesión</button>
+    </div>
+
+    <div class="mt-3 text-center">
+      <span>¿No tienes una cuenta? </span>
+      <a href="#" class="register-link">Regístrate</a>
+    </div>
+  </div>
+
+  <script src="Login.js"></script>
+</body>
+</html>
