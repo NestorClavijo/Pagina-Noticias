@@ -20,7 +20,7 @@ const handleSubmit = async (e) => {
         }
 
         const result = await response.json();
-        //console.log("Respuesta del servidor:", result);
+        console.log("Respuesta del servidor:", result);
 
         localStorage.setItem("token", result.token);
         localStorage.setItem("userId", result.id);
