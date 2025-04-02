@@ -10,7 +10,7 @@ const handleSubmit = async (e) => {
         const response = await fetch('http://localhost:8080/auth/login', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(data)
         });
@@ -36,7 +36,7 @@ const handleSubmit = async (e) => {
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(".formulario_login");
 
-    console.log("Formulario encontrado:", form); 
+    // console.log("Formulario encontrado:", form); 
 
     if (form) {
         form.addEventListener("submit", handleSubmit);
