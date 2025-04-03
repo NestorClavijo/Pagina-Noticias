@@ -5,6 +5,8 @@ import com.app.noticias.model.Noticia;
 import com.app.noticias.model.Usuario;
 import com.app.noticias.repository.NoticiaRepository;
 import com.app.noticias.repository.UsuarioRepository;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +17,14 @@ import java.util.List;
 public class NoticiaServiceImpl implements NoticiaService {
 
     @Autowired
-    private NoticiaRepository noticiaRepository;
-    private UsuarioRepository usuarioRepository;
+    private final NoticiaRepository noticiaRepository;
+    private final UsuarioRepository usuarioRepository;
+
+    public NoticiaServiceImpl(NoticiaRepository noticiaRepository, UsuarioRepository usuarioRepository){
+        this.noticiaRepository = noticiaRepository;
+        this.usuarioRepository = usuarioRepository;
+    }
+
 
     @Override
     public Noticia crearNoticia(Long id_usuario, String titulo, String descripcion) {

@@ -1,5 +1,6 @@
 package com.app.noticias.controller;
 
+import com.app.noticias.DTO.CrearNoticiaRequest;
 import com.app.noticias.Service.NoticiaService;
 import com.app.noticias.model.Noticia;
 import lombok.RequiredArgsConstructor;
@@ -18,29 +19,33 @@ public class NoticiaController {
     @Autowired
     private NoticiaService noticiaService;
 
+    @CrossOrigin(origins="*")
     @PostMapping("/crear")
-    public ResponseEntity<Noticia> create(
-            @RequestParam Long usuarioId,
-            @RequestParam String titulo,
-            @RequestParam String descripcion) {
+    public ResponseEntity<Noticia> create(@RequestBody CrearNoticiaRequest noticiaRequest) {
 
-        return ResponseEntity.ok(noticiaService.crearNoticia(usuarioId, titulo, descripcion));
+        return ResponseEntity.ok(noticiaService.crearNoticia(
+                noticiaRequest.getUsuarioId(),
+                noticiaRequest.getTitulo(),
+                noticiaRequest.getDescripcion()));
     }
 
+
+    @CrossOrigin(origins="*")
     @GetMapping("/usuario/{usuarioId}")
     public ResponseEntity<List<Noticia>> getNoticiasByUsuario(@PathVariable Long usuarioId) {
         return ResponseEntity.ok(noticiaService.noticiasUsuario(usuarioId));
     }
 
+    @CrossOrigin(origins="*")
     @PutMapping("/actualizar/{id}")
     public ResponseEntity<Noticia> update(
             @PathVariable Long id,
-            @RequestParam String titulo,
-            @RequestParam String descripcion) {
+            @RequestBody CrearNoticiaRequest noticiaRequest) {
 
-        return ResponseEntity.ok(noticiaService.actualizarNoticia(id, titulo, descripcion));
+        return ResponseEntity.ok(noticiaService.actualizarNoticia(id, noticiaRequest.getTitulo(), noticiaRequest.getDescripcion()));
     }
 
+    @CrossOrigin(origins="*")
     @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         noticiaService.deleteNoticia(id);

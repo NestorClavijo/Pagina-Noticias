@@ -12,9 +12,15 @@ import java.util.Optional;
 public class LikeServiceImpl implements LikeService {
 
     @Autowired
-    private CalificacionNoticiaRepository calificacionNoticiaRepository;
-    private UsuarioRepository usuarioRepository;
-    private NoticiaRepository noticiaRepository;
+    private final CalificacionNoticiaRepository calificacionNoticiaRepository;
+    private final UsuarioRepository usuarioRepository;
+    private final NoticiaRepository noticiaRepository;
+
+    public LikeServiceImpl(CalificacionNoticiaRepository calificacionNoticiaRepository, UsuarioRepository usuarioRepository, NoticiaRepository noticiaRepository){
+       this.calificacionNoticiaRepository = calificacionNoticiaRepository;
+       this.usuarioRepository = usuarioRepository;
+       this.noticiaRepository = noticiaRepository;
+    }
 
     @Override
     public Optional<CalificacionNoticia> obtenerCalificacion(Long id_noticia, Long id_usuario) {

@@ -1,5 +1,6 @@
 package com.app.noticias.controller;
 
+import com.app.noticias.DTO.CrearComentarioRequest;
 import com.app.noticias.Service.ComentarioService;
 import com.app.noticias.model.Comentario;
 import lombok.RequiredArgsConstructor;
@@ -18,28 +19,32 @@ public class ComentarioController {
     @Autowired
     private ComentarioService comentarioService;
 
+    @CrossOrigin(origins="*")
     @PostMapping("/crear")
-    public ResponseEntity<Comentario> create(
-            @RequestParam Long usuarioId,
-            @RequestParam Long noticiaId,
-            @RequestParam String descripcion) {
+    public ResponseEntity<Comentario> create(@RequestBody CrearComentarioRequest comentarioRequest) {
 
-        return ResponseEntity.ok(comentarioService.crearComentario(usuarioId,noticiaId,descripcion));
+        return ResponseEntity.ok(comentarioService.crearComentario(
+                comentarioRequest.getUsuarioId(),
+                comentarioRequest.getNoticiaId(),
+                comentarioRequest.getDescripcion()));
     }
 
+    @CrossOrigin(origins="*")
     @GetMapping("/noticia/{noticiaId}")
     public ResponseEntity<List<Comentario>> getComentariosByNoticia(@PathVariable Long noticiaId) {
         return ResponseEntity.ok(comentarioService.comentarioNoticia(noticiaId));
     }
 
+    @CrossOrigin(origins="*")
     @PutMapping("/actualizar/{id}")
     public ResponseEntity<Comentario> update(
             @PathVariable Long id,
-            @RequestParam String descripcion) {
+            @RequestBody CrearComentarioRequest comentarioRequest) {
 
-        return ResponseEntity.ok(comentarioService.actualizarcomentario(id,descripcion));
+        return ResponseEntity.ok(comentarioService.actualizarcomentario(id,comentarioRequest.getDescripcion()));
     }
 
+    @CrossOrigin(origins="*")
     @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         comentarioService.deleteComentario(id);

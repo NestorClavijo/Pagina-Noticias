@@ -17,9 +17,15 @@ import java.util.List;
 public class ComentarioServiceImpl implements ComentarioService {
 
     @Autowired
-    private NoticiaRepository noticiaRepository;
-    private UsuarioRepository usuarioRepository;
-    private ComentarioRepository comentarioRepository;
+    private final NoticiaRepository noticiaRepository;
+    private final UsuarioRepository usuarioRepository;
+    private final ComentarioRepository comentarioRepository;
+
+    public ComentarioServiceImpl(NoticiaRepository noticiaRepository, UsuarioRepository usuarioRepository, ComentarioRepository comentarioRepository){
+        this.noticiaRepository = noticiaRepository;
+        this.usuarioRepository = usuarioRepository;
+        this.comentarioRepository = comentarioRepository;
+    }
 
     @Override
     public Comentario crearComentario(Long id_usuario, Long id_noticia, String descripcion) {
