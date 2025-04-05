@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Noticias - Página Principal</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   <script src="https://kit.fontawesome.com/fcdb2982df.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="Principal_page.css">
 </head>
@@ -25,35 +25,83 @@
   <main class="container my-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
       <h1 class="text-secondary font-weight-bold">Listado de Noticias</h1>
-      <button class="btn btn-primary font-weight-bold" id="btn-crear-noticia" data-toggle="modal" data-target="#miModal">
+      <!-- Botón para crear nueva noticia -->
+      <button class="btn btn-primary font-weight-bold" id="btn-crear-noticia" data-toggle="modal" data-target="#modalNuevaNoticia">
         <i class="fas fa-plus"></i> Nueva Noticia
       </button>
-      <!-- MODAL -->
-      <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="miModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="miModalLabel">Título del Modal</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              Aquí va el contenido del modal.
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-              <button type="button" class="btn btn-primary">Agregar noticia</button>
-            </div>
+    </div>
+
+    <!-- MODAL de crear noticia (sin cambios) -->
+    <div class="modal fade" id="modalNuevaNoticia" tabindex="-1" role="dialog" aria-labelledby="modalNuevaNoticiaLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document"> 
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalNuevaNoticiaLabel">Nueva noticia</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="formulario-noticia" id="formulario-noticia">
+              <div class="form-group">
+                <label for="noticeTitle">
+                  <i class="fas fa-heading text-primary mr-2"></i> Título de la noticia
+                </label>
+                <input type="text" class="form-control" id="noticeTitle" name="notice-title" placeholder="Ingrese el título de la noticia" required>
+              </div>
+              <div class="form-group">
+                <label for="noticeContent">
+                  <i class="fas fa-align-left text-primary mr-2"></i> Contenido de la noticia
+                </label>
+                <textarea class="form-control" id="noticeContent" name="notice-content" rows="6" placeholder="Escriba el contenido de la noticia" required></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="submit" form="formulario-noticia" class="btn btn-primary">Confirmar</button>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Modal de Editar Noticia -->
+    <div class="modal fade" id="modalEdicion" tabindex="-1" role="dialog" aria-labelledby="modalEdicionLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <form class="formulario-editar-noticia" id="formulario-editar-noticia">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalEdicionLabel">Editar Noticia</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                <span>&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!-- Campo oculto para el ID de la noticia -->
+              <input type="hidden" id="editarNoticiaId">
+              <div class="form-group">
+                <label for="editarTitle"><i class="fas fa-heading"></i> Título de la noticia</label>
+                <input type="text" class="form-control" id="editarTitle" placeholder="Ingrese el nuevo título" required>
+              </div>
+              <div class="form-group">
+                <label for="editarContent"><i class="fas fa-align-left"></i> Contenido de la noticia</label>
+                <textarea class="form-control" id="editarContent" rows="6" placeholder="Ingresa el nuevo contenido" required></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-primary">Confirmar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenedor de las tarjetas de noticia -->
     <div class="row" id="noticias-container">
-      <!-- Tarjeta de noticia -->
+      <!-- Ejemplo de tarjeta estática (para referencia) -->
       <div class="col-md-4 mb-4">
-        <div class="card shadow-sm h-100">
+        <div class="card shadow-sm h-100" data-id="1" data-titulo="Título de la noticia 1" data-descripcion="Breve descripción de la noticia o primer párrafo que da un resumen.">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">
               <a href="../Card_notice/notice_detail.html" class="text-dark text-decoration-none font-weight-bold">
@@ -64,7 +112,7 @@
               Breve descripción de la noticia o primer párrafo que da un resumen.
             </p>
             <div class="d-flex justify-content-between">
-              <button class="btn btn-warning btn-sm mr-2">
+              <button class="btn btn-warning btn-sm mr-2" data-toggle="modal" data-target="#modalEdicion">
                 <i class="fas fa-edit"></i> Editar
               </button>
               <button class="btn btn-danger btn-sm">
@@ -74,53 +122,7 @@
           </div>
         </div>
       </div>
-
-      <!-- Repetir tarjetas para más noticias -->
-      <div class="col-md-4 mb-4">
-        <div class="card shadow-sm h-100">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">
-              <a href="../Card_notice/notice_detail.html" class="text-dark text-decoration-none font-weight-bold">
-                Título de la noticia 2
-              </a>
-            </h5>
-            <p class="card-text flex-grow-1 text-muted">
-              Breve descripción de la noticia o primer párrafo que da un resumen.
-            </p>
-            <div class="d-flex justify-content-between">
-              <button class="btn btn-warning btn-sm mr-2">
-                <i class="fas fa-edit"></i> Editar
-              </button>
-              <button class="btn btn-danger btn-sm">
-                <i class="fas fa-trash-alt"></i> Eliminar
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 mb-4">
-        <div class="card shadow-sm h-100">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">
-              <a href="../Card_notice/notice_detail.html" class="text-dark text-decoration-none font-weight-bold">
-                Título de la noticia 3
-              </a>
-            </h5>
-            <p class="card-text flex-grow-1 text-muted">
-              Breve descripción de la noticia o primer párrafo que da un resumen.
-            </p>
-            <div class="d-flex justify-content-between">
-              <button class="btn btn-warning btn-sm mr-2">
-                <i class="fas fa-edit"></i> Editar
-              </button>
-              <button class="btn btn-danger btn-sm">
-                <i class="fas fa-trash-alt"></i> Eliminar
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- Las demás tarjetas se generan dinámicamente -->
     </div>
   </main>
 
