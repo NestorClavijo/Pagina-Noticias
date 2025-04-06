@@ -40,7 +40,21 @@ public class SecurityConfig {
                                 /* Permite el acceso sin autenticación a las rutas que comienzan con "/auth/**"
                                  y las necesarias para swagger, que son las rutas de login, registro y Swagger.*/
                                 // Las demás rutas requieren autenticación.
-                                .requestMatchers("/swagger.html","/swagger-ui/*", "/swagger-ui.html", "/docs/", "/v3/api-docs/*","/auth/**").permitAll()
+                                .requestMatchers(
+                                        "/swagger.html",
+                                        "/swagger-ui/*",
+                                        "/swagger-ui.html",
+                                        "/swagger-ui/**",
+                                        "/v3/api-docs/*",
+                                        "/v3/api-docs/**",
+                                        "/v3/api-docs.yaml",
+                                        "/swagger-resources",
+                                        "/swagger-resources/**",
+                                        "/configuration/ui",
+                                        "/configuration/security",
+                                        "/webjars/**",
+                                        "/auth/**"
+                                ).permitAll()
                                 .anyRequest().authenticated()
                 )
                 // Configura la aplicación para que no use sesiones HTTP, esto es útil en una arquitectura sin estado.
