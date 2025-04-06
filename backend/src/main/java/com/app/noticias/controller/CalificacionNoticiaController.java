@@ -2,6 +2,10 @@ package com.app.noticias.controller;
 
 import com.app.noticias.Service.LikeService;
 import com.app.noticias.model.CalificacionNoticia;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -9,38 +13,87 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
+/* Este controlador maneja las operaciones relacionadas con las calificaciones de noticias.
+   Utiliza el servicio LikeService para crear, leer, actualizar y eliminar las calificaciones de noticias. */
 @RestController
-@RequestMapping("/api/calificacionNoticia/")
-@RequiredArgsConstructor
-@CrossOrigin(origins="*")
+@RequestMapping("/api/calificacionNoticia/") // Define la ruta base para todas las operaciones de calificación (por ejemplo: "/api/calificacionNoticia/crear")
+@RequiredArgsConstructor // Lombok genera automáticamente un constructor para inyectar las dependencias necesarias
+@CrossOrigin(origins="*") // Permite el acceso desde cualquier origen para este controlador
 public class CalificacionNoticiaController {
 
     @Autowired
-    private LikeService likeService;
+    private LikeService likeService; // Inyección de dependencia del servicio LikeService para manejar las calificaciones.
 
-    @CrossOrigin(origins="*")
-    @PostMapping("/crear")
-    public ResponseEntity<CalificacionNoticia> create(@RequestParam Long usuarioId, @RequestParam Long comentarioId, @RequestParam Integer valor) {
+    /*
+    @Operation resumen: Crear una nueva calificación para una noticia.
+    @Parameter describe los parámetros de la solicitud como el ID del usuario, el ID del comentario y el valor de la calificación.
+    @ApiResponses define las respuestas posibles para este endpoint, solo se maneja el código de respuesta 200.
+    */
+    @Operation(summary = "Crear una nueva calificación para una noticia")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Calificación creada con éxito")
+    })
+    @PostMapping("/crear") // Define la ruta y el método HTTP (POST) para crear la calificación
+    public ResponseEntity<CalificacionNoticia> create(
+            @Parameter(description = "ID del usuario que realiza la calificación") @RequestParam Long usuarioId,
+            @Parameter(description = "ID del comentario relacionado con la calificación") @RequestParam Long comentarioId,
+            @Parameter(description = "Valor de la calificación") @RequestParam Integer valor) {
+
         return ResponseEntity.ok(likeService.crearCalificacion(usuarioId, comentarioId, valor));
+        // Llama al servicio LikeService para crear la calificación y devuelve una respuesta con el objeto creado.
     }
 
-    @CrossOrigin(origins="*")
-    @GetMapping("/buscar")
-    public ResponseEntity<CalificacionNoticia> read(@RequestParam Long usuarioId, @RequestParam Long comentarioId) {
+    /*
+    @Operation resumen: Obtener una calificación de una noticia específica.
+    @Parameter describe los parámetros 'usuarioId' y 'comentarioId' para obtener la calificación relacionada.
+    @ApiResponses define las respuestas posibles para este endpoint, solo se maneja el código de respuesta 200.
+    */
+    @Operation(summary = "Obtener una calificación de una noticia")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Calificación obtenida con éxito")
+    })
+    @GetMapping("/buscar") // Define la ruta y el método HTTP (GET) para obtener una calificación
+    public ResponseEntity<CalificacionNoticia> read(
+            @Parameter(description = "ID del usuario para obtener su calificación") @RequestParam Long usuarioId,
+            @Parameter(description = "ID del comentario para obtener su calificación") @RequestParam Long comentarioId) {
+
         Optional<CalificacionNoticia> calificacion = likeService.obtenerCalificacion(usuarioId, comentarioId);
         return calificacion.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        // Si la calificación existe, la devuelve; si no, responde con un error 404.
     }
 
-    @CrossOrigin(origins="*")
-    @PutMapping("/actualizar/{id}")
-    public ResponseEntity<CalificacionNoticia> update(@PathVariable Long id, @RequestParam Integer nuevoValor) {
+    /*
+    @Operation resumen: Actualizar una calificación existente.
+    @Parameter describe el parámetro 'nuevoValor' que será el nuevo valor de la calificación.
+    @ApiResponses define las respuestas posibles para este endpoint, solo se maneja el código de respuesta 200.
+    */
+    @Operation(summary = "Actualizar una calificación existente")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Calificación actualizada con éxito")
+    })
+    @PutMapping("/actualizar/{id}") // Define la ruta y el método HTTP (PUT) para actualizar la calificación
+    public ResponseEntity<CalificacionNoticia> update(
+            @Parameter(description = "ID de la calificación que se desea actualizar") @PathVariable Long id,
+            @Parameter(description = "Nuevo valor de la calificación") @RequestParam Integer nuevoValor) {
+
         return ResponseEntity.ok(likeService.cambiarCalificacion(id, nuevoValor));
+        // Llama al servicio LikeService para actualizar la calificación y devuelve la respuesta con la calificación actualizada.
     }
 
-    @CrossOrigin(origins="*")
-    @DeleteMapping("/eliminar/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    /*
+    @Operation resumen: Eliminar una calificación existente.
+    @ApiResponses define las respuestas posibles para este endpoint, solo se maneja el código de respuesta 200.
+    */
+    @Operation(summary = "Eliminar una calificación existente")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Calificación eliminada con éxito")
+    })
+    @DeleteMapping("/eliminar/{id}") // Define la ruta y el método HTTP (DELETE) para eliminar la calificación
+    public ResponseEntity<Void> delete(
+            @Parameter(description = "ID de la calificación que se desea eliminar") @PathVariable Long id) {
+
         likeService.deleteLike(id);
         return ResponseEntity.noContent().build();
+        // Llama al servicio LikeService para eliminar la calificación y responde con un código 204 No Content.
     }
 }
