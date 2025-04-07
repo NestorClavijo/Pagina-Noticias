@@ -1,5 +1,7 @@
 package com.app.noticias.controller;
 
+import com.app.noticias.DTO.BuscarCalificacionRequest;
+import com.app.noticias.DTO.CrearCalificacionRequest;
 import com.app.noticias.Service.LikeService;
 import com.app.noticias.model.CalificacionNoticia;
 import io.swagger.v3.oas.annotations.Operation;
@@ -35,11 +37,12 @@ public class CalificacionNoticiaController {
     })
     @PostMapping("/crear") // Define la ruta y el método HTTP (POST) para crear la calificación
     public ResponseEntity<CalificacionNoticia> create(
-            @Parameter(description = "ID del usuario que realiza la calificación") @RequestParam Long usuarioId,
-            @Parameter(description = "ID del comentario relacionado con la calificación") @RequestParam Long comentarioId,
-            @Parameter(description = "Valor de la calificación") @RequestParam Integer valor) {
+            @Parameter(description = "Datos necesarios para calificar un comentario") @RequestBody CrearCalificacionRequest calificacionRequest) {
 
-        return ResponseEntity.ok(likeService.crearCalificacion(usuarioId, comentarioId, valor));
+        return ResponseEntity.ok(likeService.crearCalificacion(
+                calificacionRequest.getComentarioId(),
+                calificacionRequest.getUsuarioId(),
+                calificacionRequest.getValor()));
         // Llama al servicio LikeService para crear la calificación y devuelve una respuesta con el objeto creado.
     }
 
@@ -52,12 +55,13 @@ public class CalificacionNoticiaController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Calificación obtenida con éxito")
     })
-    @GetMapping("/buscar") // Define la ruta y el método HTTP (GET) para obtener una calificación
+    @PostMapping("/buscar") // Define la ruta y el método HTTP (GET) para obtener una calificación
     public ResponseEntity<CalificacionNoticia> read(
-            @Parameter(description = "ID del usuario para obtener su calificación") @RequestParam Long usuarioId,
-            @Parameter(description = "ID del comentario para obtener su calificación") @RequestParam Long comentarioId) {
+            @Parameter(description = "Datos necesarios para obtener una calificacion") @RequestBody BuscarCalificacionRequest calificacionRequest) {
 
-        Optional<CalificacionNoticia> calificacion = likeService.obtenerCalificacion(usuarioId, comentarioId);
+        Optional<CalificacionNoticia> calificacion = likeService.obtenerCalificacion(
+                calificacionRequest.getNoticiaId(),
+                calificacionRequest.getUsuarioId());
         return calificacion.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
         // Si la calificación existe, la devuelve; si no, responde con un error 404.
     }
@@ -74,9 +78,9 @@ public class CalificacionNoticiaController {
     @PutMapping("/actualizar/{id}") // Define la ruta y el método HTTP (PUT) para actualizar la calificación
     public ResponseEntity<CalificacionNoticia> update(
             @Parameter(description = "ID de la calificación que se desea actualizar") @PathVariable Long id,
-            @Parameter(description = "Nuevo valor de la calificación") @RequestParam Integer nuevoValor) {
+            @Parameter(description = "Nuevo valor de la calificación") @RequestBody CrearCalificacionRequest calificacionRequest) {
 
-        return ResponseEntity.ok(likeService.cambiarCalificacion(id, nuevoValor));
+        return ResponseEntity.ok(likeService.cambiarCalificacion(id, calificacionRequest.getValor()));
         // Llama al servicio LikeService para actualizar la calificación y devuelve la respuesta con la calificación actualizada.
     }
 
