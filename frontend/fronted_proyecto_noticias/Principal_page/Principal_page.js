@@ -67,7 +67,7 @@ function actualizarDOMNoticias(noticias) {
         <div class="card shadow-sm h-100" data-id="${noticia.id_noticia}" data-titulo="${noticia.titulo}" data-descripcion="${noticia.descripcion}">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">
-              <a href="../Card_notice/notice_detail.html" class="text-dark text-decoration-none font-weight-bold">
+              <a href="../Card_notice/notice_detail.html?id=${noticia.id_noticia}&titulo=${encodeURIComponent(noticia.titulo)}&descripcion=${encodeURIComponent(noticia.descripcion)}" class="text-dark text-decoration-none font-weight-bold">
                 ${noticia.titulo}
               </a>
             </h5>
@@ -96,7 +96,7 @@ function agregarNoticiaAlDOM(noticia) {
         <div class="card shadow-sm h-100" data-id="${noticia.id_noticia}" data-titulo="${noticia.titulo}" data-descripcion="${noticia.descripcion}">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">
-              <a href="../Card_notice/notice_detail.html" class="text-dark text-decoration-none font-weight-bold">
+              <a href="../Card_notice/notice_detail.html?id=${noticia.id_noticia}&titulo=${encodeURIComponent(noticia.titulo)}&descripcion=${encodeURIComponent(noticia.descripcion)}" class="text-dark text-decoration-none font-weight-bold">
                 ${noticia.titulo}
               </a>
             </h5>
