@@ -17,28 +17,30 @@
       </a>
       <span class="navbar-text mx-auto font-weight-bold">Noticias Hoy</span>
     </nav>
+    <button class="btn btn-outline-light font-weight-bold ml-auto fa-align-left" id="btn-cerrar-sesion-2">
+      <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+    </button>
   </header>
 
   <!-- MAIN CONTENT -->
   <main class="container mb-5">
     <!-- Detalle de la Noticia -->
     <section class="detalle-noticia mb-5 bg-white p-4 rounded shadow-sm">
-      <h1 class="titulo-noticia text-dark font-weight-bold mb-3">Título de la Noticia</h1>
-      <p class="text-muted mb-4">"Descripción breve de la noticia"</p>
-      <p class="contenido-noticia text-secondary">
+      <h1 class="titulo-noticia text-dark font-weight-bold mb-3" id="titulo-noticia">Título de la Noticia</h1>
+      <div class="contenido-noticia text-secondary" id="contenido-noticia">
         Aquí se muestra el contenido completo de la noticia. Puede ser un texto largo con varios párrafos y secciones. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar, sem sit amet scelerisque porttitor, metus massa convallis nisl, ac consectetur purus arcu id odio.
-      </p>
+      </div>
 
       <!-- Sección de Interacciones (Likes/Dislikes) -->
       <div class="interacciones my-3 d-flex align-items-center">
         <button class="btn btn-outline-success btn-sm d-flex align-items-center" id="like-button">
           <i class="fas fa-thumbs-up mr-2"></i> Me gusta
         </button>
-        <span class="contador-likes text-secondary mx-3" id="like-count">0</span>
+        <span class="contador-likes text-secondary mx-3" id="like-count"></span>
         <button class="btn btn-outline-danger btn-sm d-flex align-items-center" id="dislike-button">
           <i class="fas fa-thumbs-down mr-2"></i> No me gusta
         </button>
-        <span class="contador-dislikes text-secondary mx-3" id="dislike-count">0</span>
+        <span class="contador-dislikes text-secondary mx-3" id="dislike-count"></span>
       </div>
     </section>
 

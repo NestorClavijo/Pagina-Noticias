@@ -1,3 +1,22 @@
+// funcionalidad cerrar sesion 
+
+const btnCerrarSesion = document.getElementById('btn-cerrar-sesion-2');
+btnCerrarSesion.addEventListener('click', () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    alert("Sesión cerrada con éxito.");
+    window.location.href = '../Login/Login.html';
+});
+
+const params = new URLSearchParams(window.location.search);
+const noticiaId = params.get('id');
+const titulo = params.get('titulo');
+const descripcion = params.get('descripcion');
+
+document.getElementById('titulo-noticia').textContent = titulo;
+document.getElementById('contenido-noticia').textContent = descripcion;
+
+
 //Crear comentario
 document.getElementById('form-comentario').addEventListener('submit', async function(event) {
     event.preventDefault(); // Evitar el envío del formulario
