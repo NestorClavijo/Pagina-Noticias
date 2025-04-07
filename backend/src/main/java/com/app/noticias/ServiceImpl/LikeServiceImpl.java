@@ -24,7 +24,7 @@ public class LikeServiceImpl implements LikeService {
 
     @Override
     public Optional<CalificacionNoticia> obtenerCalificacion(Long id_noticia, Long id_usuario) {
-        return calificacionNoticiaRepository.findByUsuarioIdAndNoticiaId(id_noticia,id_usuario);
+        return calificacionNoticiaRepository.findByUsuarioIdAndNoticiaId(id_usuario,id_noticia);
     }
 
     @Override

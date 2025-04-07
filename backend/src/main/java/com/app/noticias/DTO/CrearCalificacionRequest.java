@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CrearCalificacionRequest {
     private Long usuarioId;
-    private Long comentarioId;
+    private Long noticiaId;
     private Integer valor;
 }

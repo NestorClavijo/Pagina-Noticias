@@ -18,7 +18,7 @@ import java.util.Optional;
 /* Este controlador maneja las operaciones relacionadas con las calificaciones de noticias.
    Utiliza el servicio LikeService para crear, leer, actualizar y eliminar las calificaciones de noticias. */
 @RestController
-@RequestMapping("/api/calificacionNoticia/") // Define la ruta base para todas las operaciones de calificación (por ejemplo: "/api/calificacionNoticia/crear")
+@RequestMapping("/api/calificacionNoticia") // Define la ruta base para todas las operaciones de calificación (por ejemplo: "/api/calificacionNoticia/crear")
 @RequiredArgsConstructor // Lombok genera automáticamente un constructor para inyectar las dependencias necesarias
 @CrossOrigin(origins="*") // Permite el acceso desde cualquier origen para este controlador
 public class CalificacionNoticiaController {
@@ -40,7 +40,7 @@ public class CalificacionNoticiaController {
             @Parameter(description = "Datos necesarios para calificar un comentario") @RequestBody CrearCalificacionRequest calificacionRequest) {
 
         return ResponseEntity.ok(likeService.crearCalificacion(
-                calificacionRequest.getComentarioId(),
+                calificacionRequest.getNoticiaId(),
                 calificacionRequest.getUsuarioId(),
                 calificacionRequest.getValor()));
         // Llama al servicio LikeService para crear la calificación y devuelve una respuesta con el objeto creado.
@@ -55,7 +55,7 @@ public class CalificacionNoticiaController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Calificación obtenida con éxito")
     })
-    @PostMapping("/buscar") // Define la ruta y el método HTTP (GET) para obtener una calificación
+    @PostMapping("/buscar") // Define la ruta y el método HTTP (POST) para obtener una calificación
     public ResponseEntity<CalificacionNoticia> read(
             @Parameter(description = "Datos necesarios para obtener una calificacion") @RequestBody BuscarCalificacionRequest calificacionRequest) {
 
