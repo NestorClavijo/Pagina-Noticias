@@ -1,99 +1,99 @@
 /* General */
 body {
-  background-color: #f8f9fa; /* Fondo claro */
-  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa; /* Establece un fondo claro para toda la página */
+  font-family: 'Arial', sans-serif; /* Define la fuente de texto como Arial */
 }
 
 header {
-  background-color: #007bff; /* Azul primario */
-  color: #ffffff;
+  background-color: #007bff; /* Azul primario para el fondo del encabezado */
+  color: #ffffff; /* El texto en el encabezado será blanco */
 }
 
 header .navbar-brand {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.5rem; /* Aumenta el tamaño de la fuente para la marca de la barra de navegación */
+  font-weight: bold; /* Hace el texto en negrita */
 }
 
 header .navbar-text {
-  font-size: 1.2rem;
+  font-size: 1.2rem; /* Establece un tamaño de fuente ligeramente mayor para el texto de la barra de navegación */
 }
 
 main {
-  margin-top: 2rem;
+  margin-top: 2rem; /* Da espacio en la parte superior de la sección principal */
 }
 
 .detalle-noticia {
-  background: #ffffff;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: #ffffff; /* Fondo blanco para el detalle de la noticia */
+  padding: 2rem; /* Agrega espacio alrededor del contenido */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil alrededor del bloque */
 }
 
 .detalle-noticia h1 {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 2rem; /* Aumenta el tamaño de la fuente del título */
+  font-weight: bold; /* Hace el título en negrita */
 }
 
 .detalle-noticia p {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1rem; /* Tamaño de fuente normal para los párrafos */
+  line-height: 1.6; /* Espacio entre líneas para mejorar la legibilidad */
 }
 
 .detalle-noticia img {
-  max-width: 100%;
-  border-radius: 10px;
-  margin-bottom: 1.5rem;
+  max-width: 100%; /* Hace que las imágenes se ajusten al tamaño de su contenedor */
+  border-radius: 10px; /* Bordes redondeados para las imágenes */
+  margin-bottom: 1.5rem; /* Agrega un margen en la parte inferior de las imágenes */
 }
 
 .interacciones button {
-  font-size: 0.9rem;
-  padding: 0.5rem 1rem;
+  font-size: 0.9rem; /* Reduce un poco el tamaño de la fuente en los botones de interacción */
+  padding: 0.5rem 1rem; /* Añade relleno dentro de los botones */
 }
 
 .interacciones span {
-  font-size: 0.9rem;
-  font-weight: bold;
+  font-size: 0.9rem; /* Ajusta el tamaño de la fuente para los elementos <span> dentro de interacciones */
+  font-weight: bold; /* Hace el texto en negrita */
 }
 
 /* Comentarios */
 .comentarios {
-  margin-top: 2rem;
+  margin-top: 2rem; /* Añade espacio encima de la sección de comentarios */
 }
 
 .comentarios h3 {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.5rem; /* Aumenta el tamaño del encabezado de comentarios */
+  font-weight: bold; /* Hace que el título de los comentarios sea en negrita */
 }
 
 .comentario-item {
-  background: #f8f9fa;
-  padding: 1rem;
-  border-radius: 10px;
-  border: 1px solid #e9ecef;
+  background: #f8f9fa; /* Fondo claro para cada comentario individual */
+  padding: 1rem; /* Agrega espacio dentro de cada comentario */
+  border-radius: 10px; /* Bordes redondeados */
+  border: 1px solid #e9ecef; /* Agrega un borde sutil de color gris claro alrededor del comentario */
 }
 
 .comentario-item h6 {
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 1rem; /* Ajusta el tamaño de la fuente para los títulos de los comentarios */
+  font-weight: bold; /* Hace los títulos en negrita */
 }
 
 .comentario-item p {
-  font-size: 0.9rem;
-  color: #6c757d;
+  font-size: 0.9rem; /* Tamaño de fuente más pequeño para el texto del comentario */
+  color: #6c757d; /* Color gris para el texto del comentario */
 }
 
 .nuevo-comentario textarea {
-  resize: none;
-  border-radius: 5px;
-  border: 1px solid #ced4da;
+  resize: none; /* Evita que el área de texto sea redimensionada */
+  border-radius: 5px; /* Bordes redondeados para el área de texto */
+  border: 1px solid #ced4da; /* Borde gris claro para el área de texto */
 }
 
 .nuevo-comentario textarea:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  border-color: #007bff; /* Cambia el color del borde a azul cuando el área de texto es seleccionada */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Agrega un brillo sutil alrededor del área de texto */
 }
 
 .nuevo-comentario button {
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 1rem; /* Aumenta el tamaño de la fuente en el botón de enviar */
+  font-weight: bold; /* Hace el texto del botón en negrita */
 }

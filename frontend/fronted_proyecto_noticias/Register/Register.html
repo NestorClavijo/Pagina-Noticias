@@ -2,20 +2,32 @@
 <html lang="es">
 
 <head>
+    <!-- Definimos la codificación del documento como UTF-8, lo cual es necesario para la correcta visualización de caracteres especiales en español -->
     <meta charset="UTF-8">
+    <!-- Definimos la escala de la página para adaptarse a diferentes tamaños de pantalla (por ejemplo, dispositivos móviles) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título de la página que aparecerá en la pestaña del navegador -->
     <title>Registro - Noticias Hoy</title>
+    <!-- Enlazamos la hoja de estilos de Bootstrap (CSS) para utilizar su diseño y componentes predefinidos -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Enlazamos la hoja de estilos personalizada para el login -->
     <link rel="stylesheet" href="../Login/login.css">
+    <!-- Enlazamos la librería de iconos FontAwesome para usar iconos en los campos de entrada -->
     <script src="https://kit.fontawesome.com/fcdb2982df.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="d-flex justify-content-center align-items-center vh-100">
+    <!-- Contenedor principal del formulario de registro -->
     <div class="register-container">
+        <!-- Logo del sitio que aparece en la parte superior -->
         <h1 class="site-logo text-primary text-center mb-2">Noticias Hoy</h1>
+        <!-- Descripción del sitio -->
         <p class="text-center">Crea tu cuenta y mantente informado</p>
+        <!-- Título de la página de registro -->
         <div class="text-center fs-1 register-title">Registrarse</div>
+        <!-- Formulario para ingresar los datos de registro -->
         <form class="mt-4 register-form" action="#" method="POST">
+            <!-- Campo para ingresar el nombre del usuario -->
             <div class="form-group position-relative mt-3">
                 <span class="position-absolute input-icon">
                     <i class="fas fa-user"></i>
@@ -23,6 +35,7 @@
                 <input type="text" name="nombre" class="form-control pl-5" placeholder="Nombre" aria-label="Nombre"
                     required>
             </div>
+            <!-- Campo para ingresar el apellido del usuario -->
             <div class="form-group position-relative mt-3">
                 <span class="position-absolute input-icon">
                     <i class="fas fa-user"></i>
@@ -30,6 +43,7 @@
                 <input type="text" name="apellido" class="form-control pl-5" placeholder="Apellido"
                     aria-label="Apellido" required>
             </div>
+            <!-- Campo para ingresar una descripción del usuario -->
             <div class="form-group position-relative mt-3">
                 <span class="position-absolute input-icon">
                     <i class="fas fa-align-left"></i>
@@ -37,6 +51,7 @@
                 <input type="text" name="descripcion" class="form-control pl-5" placeholder="Descripción"
                     aria-label="Descripción">
             </div>
+            <!-- Campo para ingresar el correo electrónico del usuario -->
             <div class="form-group position-relative mt-3">
                 <span class="position-absolute input-icon">
                     <i class="fas fa-envelope"></i>
@@ -44,6 +59,7 @@
                 <input type="email" name="email" class="form-control pl-5" placeholder="Correo Electrónico"
                     aria-label="Correo Electrónico" required>
             </div>
+            <!-- Campo para ingresar el teléfono del usuario -->
             <div class="form-group position-relative mt-3">
                 <span class="position-absolute input-icon">
                     <i class="fas fa-phone"></i>
@@ -51,6 +67,7 @@
                 <input type="tel" name="telefono" class="form-control pl-5" placeholder="Teléfono"
                     aria-label="Teléfono">
             </div>
+            <!-- Campo para ingresar el nombre de usuario -->
             <div class="form-group position-relative mt-3">
                 <span class="position-absolute input-icon">
                     <i class="fas fa-user-circle"></i>
@@ -58,29 +75,31 @@
                 <input type="text" name="username" class="form-control pl-5" placeholder="Nombre de Usuario"
                     aria-label="Nombre de Usuario" required>
             </div>
+            <!-- Campo para ingresar la contraseña del usuario -->
             <div class="form-group position-relative mt-3">
                 <span class="position-absolute input-icon">
                     <i class="fas fa-lock"></i>
                 </span>
                 <input type="password" name="password" class="form-control pl-5 pr-5" placeholder="Contraseña"
                     aria-label="Contraseña" required>
+                <!-- Icono para mostrar/ocultar la contraseña -->
                 <span class="position-absolute input-icon-right toggle-password" title="Mostrar/ocultar contraseña">
                     <i class="fas fa-eye"></i>
                 </span>
             </div>
+            <!-- Botón para enviar el formulario y crear la cuenta -->
             <div class="mt-4">
                 <button type="submit" class="btn btn-primary w-100">Crear Cuenta</button>
             </div>
+            <!-- Enlace para ir a la página de login si ya tiene cuenta -->
             <div class="mt-3 text-center">
                 <span>¿Ya tienes una cuenta? </span>
                 <a href="../Login/Login.html" class="login-link">Inicia Sesión</a>
             </div>
         </form>
     </div>
+    <!-- Script que maneja el comportamiento del formulario de registro -->
     <script src="Register.js"></script>
-</body>
-
-</html>
 </body>
 
 </html>

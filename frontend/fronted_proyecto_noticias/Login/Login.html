@@ -1,46 +1,64 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html> <!-- Declara que este archivo es un documento HTML5 -->
+<html lang="es"> <!-- Define que el lenguaje del documento es español -->
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iniciar Sesión - Noticias Hoy</title>
+  <!-- Configuración del documento -->
+  <meta charset="UTF-8"> <!-- Establece la codificación de caracteres como UTF-8, soportando caracteres especiales -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página sea responsiva (se adapta a distintos tamaños de pantalla) -->
+  <title>Iniciar Sesión - Noticias Hoy</title> <!-- Título de la página que aparecerá en la pestaña del navegador -->
+  <!-- Enlace a la hoja de estilo de Bootstrap para usar componentes predefinidos y un diseño limpio -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Enlace a FontAwesome para usar íconos en la página -->
   <script src="https://kit.fontawesome.com/fcdb2982df.js" crossorigin="anonymous"></script>
+  <!-- Enlace a la hoja de estilo personalizada para el diseño específico del formulario de login -->
   <link rel="stylesheet" href="login.css">
 </head>
 
-<body class="d-flex justify-content-center align-items-center vh-100">
-  <form class="login-container" action="#" method="POST">
-    <h1 class="site-logo text-primary text-center mb-2">Noticias Hoy</h1>
-    <p class="text-center">Tu fuente confiable de noticias</p>
+<body class="d-flex justify-content-center align-items-center vh-100"> <!-- Aplica clases de Bootstrap para centrar el contenido de la página -->
+
+  <!-- Formulario de login -->
+  <form class="login-container" action="#" method="POST"> <!-- El formulario se enviará por el método POST -->
+    <!-- Logo de la aplicación -->
+    <h1 class="site-logo text-primary text-center mb-2">Noticias Hoy</h1> <!-- Título del sitio, con color azul y centrado -->
+    <p class="text-center">Tu fuente confiable de noticias</p> <!-- Descripción del sitio -->
+    <!-- Título principal de la página de login -->
     <div class="text-center fs-1 login-title">Iniciar sesión</div>
-    <div class="form-group position-relative mt-4">
-      <span class="position-absolute input-icon">
+
+    <!-- Campo para el nombre de usuario -->
+    <div class="form-group position-relative mt-4"> <!-- Contenedor para el campo de texto con la clase para agregar un ícono -->
+      <span class="position-absolute input-icon"> <!-- Ícono del usuario a la izquierda del campo -->
         <i class="fas fa-user"></i>
       </span>
+      <!-- Campo de entrada para el nombre de usuario -->
       <input class="form-control pl-5" type="text" placeholder="Usuario" name="username" aria-label="Usuario" required>
     </div>
-    <div class="form-group position-relative mt-3">
-      <span class="position-absolute input-icon">
+
+    <!-- Campo para la contraseña -->
+    <div class="form-group position-relative mt-3"> <!-- Contenedor para el campo de contraseña con la clase para agregar un ícono -->
+      <span class="position-absolute input-icon"> <!-- Ícono de candado a la izquierda del campo -->
         <i class="fas fa-lock"></i>
       </span>
-      <input type="password" placeholder="Contraseña" class="form-control pl-5 pr-5" name="password"
-        aria-label="Contraseña" required>
+      <!-- Campo de entrada para la contraseña -->
+      <input type="password" placeholder="Contraseña" class="form-control pl-5 pr-5" name="password" aria-label="Contraseña" required>
+      <!-- Ícono para mostrar/ocultar la contraseña -->
       <span class="position-absolute input-icon-right toggle-password" title="Mostrar/ocultar contraseña">
         <i class="fas fa-eye"></i>
       </span>
     </div>
+
+    <!-- Botón para iniciar sesión -->
     <div class="mt-4">
       <button class="btn btn-primary w-100" id="login-button" type="submit">Iniciar sesión</button>
     </div>
 
+    <!-- Enlace para registrarse si no tiene cuenta -->
     <div class="mt-3 text-center">
       <span>¿No tienes una cuenta? </span>
-      <a href="../Register/Register.html" class="register-link">Regístrate</a>
+      <a href="../Register/Register.html" class="register-link">Regístrate</a> <!-- Enlace a la página de registro -->
     </div>
   </form>
 
+  <!-- Enlace al script de JavaScript para manejar la lógica del login -->
   <script src="Login.js"></script>
 </body>
 

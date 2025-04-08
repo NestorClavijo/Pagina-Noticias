@@ -3,14 +3,14 @@
 
 ## Descripción
 
-**Página-Noticias** es una aplicación web que permite a los usuarios interactuar con noticias, creando, comentando y calificando noticias. Los usuarios pueden registrarse, iniciar sesión y gestionar su contenido a través de una API RESTful. 
+**Página-Noticias** es una aplicación web que permite a los usuarios interactuar con noticias, creando, comentando y calificando noticias. Los usuarios pueden registrarse, iniciar sesión y gestionar su contenido a través de una API RESTful.
 
 ### Funcionalidades principales:
 - **Inicio de sesión y registro** de usuarios utilizando **JWT** para autenticación.
 - Los usuarios pueden **crear, editar y eliminar noticias**.
 - Los usuarios pueden **comentar y calificar** noticias.
 - **Interacción en tiempo real** para la calificación de noticias (me gusta/no me gusta).
-  
+
 ## Tecnologías utilizadas
 
 ### Front-End:
@@ -24,6 +24,10 @@
 - **JWT**: Para la autenticación y autorización de los usuarios.
 - **JPA/Hibernate**: Para la gestión de la base de datos.
 - **MySQL**: Base de datos relacional para almacenar usuarios, noticias, comentarios y calificaciones.
+
+## Base de datos
+
+La base de datos utilizada es **`noticias`**, donde se almacenan los datos relacionados con los usuarios, noticias, comentarios y calificaciones.
 
 ## Estructura del Proyecto
 
@@ -55,7 +59,7 @@
    ```
 
 ### 2. **Configurar la base de datos**:
-   - Crea una base de datos **`noticias_db`** en MySQL.
+   - Crea una base de datos **`noticias`** en MySQL.
    - Configura las credenciales en el archivo **`application.properties`**.
 
 ### 3. **Ejecutar el back-end**:
@@ -70,21 +74,31 @@
 ## Uso
 
 ### Endpoints disponibles en la API (Back-End):
-- **POST `/auth/login`**: Inicia sesión con las credenciales del usuario. Requiere un `username` y `password`.
-- **POST `/auth/register`**: Registra un nuevo usuario.
-- **GET `/api/Noticia/usuario/{usuarioId}`**: Obtiene las noticias de un usuario específico.
-- **POST `/api/Comentario/crear`**: Crea un nuevo comentario para una noticia.
-- **POST `/api/calificacionNoticia/crear`**: Crea una nueva calificación para una noticia.
 
-## Contribuciones
+#### **Calificación de Noticias**:
+- **PUT** `/api/calificacionNoticia/actualizar/{id}`: Actualizar una calificación existente.
+- **POST** `/api/calificacionNoticia/crear`: Crear una nueva calificación para una noticia.
+- **POST** `/api/calificacionNoticia/buscar`: Obtener la calificación de una noticia.
+- **DELETE** `/api/calificacionNoticia/eliminar/{id}`: Eliminar una calificación.
 
-Si deseas contribuir a este proyecto, por favor sigue estos pasos:
-1. Haz un **fork** del repositorio.
-2. Crea una nueva **branch** (`git checkout -b nueva-feature`).
-3. Realiza tus cambios y **commitea** tus cambios (`git commit -am 'Agrega nueva funcionalidad'`).
-4. Haz un **push** a tu branch (`git push origin nueva-feature`).
-5. Abre un **pull request** en GitHub.
+#### **Noticias**:
+- **PUT** `/api/Noticia/actualizar/{id}`: Actualizar una noticia existente.
+- **POST** `/api/Noticia/crear`: Crear una nueva noticia.
+- **GET** `/api/Noticia/usuario/{usuarioId}`: Obtener noticias de un usuario.
+- **DELETE** `/api/Noticia/eliminar/{id}`: Eliminar una noticia.
 
-## Licencia
+#### **Comentarios**:
+- **PUT** `/api/Comentario/actualizar/{id}`: Actualizar un comentario.
+- **POST** `/api/Comentario/crear`: Crear un nuevo comentario en una noticia.
+- **GET** `/api/Comentario/noticia/{noticiaId}`: Obtener los comentarios de una noticia.
+- **DELETE** `/api/Comentario/eliminar/{id}`: Eliminar un comentario.
 
-Este proyecto está bajo la **Licencia MIT**.
+#### **Autenticación**:
+- **POST** `/auth/register`: Registro de usuario.
+- **POST** `/auth/login`: Login de usuario.
+
+### Documentación de las APIs
+
+La documentación completa de las APIs se puede visualizar en Swagger, a través del siguiente enlace:
+
+[http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)

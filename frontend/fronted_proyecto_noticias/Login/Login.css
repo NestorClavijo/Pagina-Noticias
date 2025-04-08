@@ -1,72 +1,72 @@
 /* General */
 body {
-  background-color: #f8f9fa; /* Fondo claro */
-  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa; /* Fondo claro para toda la página, dando un aspecto limpio y suave */
+  font-family: 'Arial', sans-serif; /* Define la fuente de texto como Arial para una apariencia sencilla y moderna */
 }
 
 .login-container {
-  background: #ffffff;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
+  background: #ffffff; /* Fondo blanco para el área del login */
+  padding: 2rem; /* Relleno dentro del contenedor para separar los elementos del borde */
+  border-radius: 10px; /* Bordes redondeados para el contenedor de login */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil alrededor del contenedor para darle profundidad */
+  width: 100%; /* El contenedor ocupará todo el ancho disponible */
+  max-width: 400px; /* El contenedor tendrá un máximo de 400px de ancho */
 }
 
 .site-logo {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 2rem; /* Tamaño grande para el logo */
+  font-weight: bold; /* Hace el texto del logo en negrita */
 }
 
 .login-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #6c757d;
+  font-size: 1.5rem; /* Tamaño de fuente para el título de login */
+  font-weight: bold; /* El título de login será en negrita */
+  color: #6c757d; /* Color gris para el texto del título */
 }
 
 .form-group {
-  position: relative;
+  position: relative; /* Establece una posición relativa para los elementos dentro de este contenedor */
 }
 
 .input-icon {
-  top: 50%;
-  left: 15px;
-  transform: translateY(-50%);
-  color: #6c757d;
+  top: 50%; /* Centra el ícono verticalmente en el input */
+  left: 15px; /* Espacio desde el borde izquierdo del input */
+  transform: translateY(-50%); /* Ajusta la posición para centrar perfectamente el ícono */
+  color: #6c757d; /* Color gris para el ícono */
 }
 
 .input-icon-right {
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
-  cursor: pointer;
-  color: #6c757d;
+  top: 50%; /* Centra el ícono verticalmente en el input */
+  right: 15px; /* Espacio desde el borde derecho del input */
+  transform: translateY(-50%); /* Ajusta la posición para centrar perfectamente el ícono */
+  cursor: pointer; /* Cambia el cursor a mano al pasar por encima */
+  color: #6c757d; /* Color gris para el ícono */
 }
 
 input.form-control {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-  height: 45px;
-  border-radius: 5px;
-  border: 1px solid #ced4da;
+  padding-left: 2.5rem; /* Espacio a la izquierda para dejar espacio al ícono */
+  padding-right: 2.5rem; /* Espacio a la derecha para dejar espacio al ícono */
+  height: 45px; /* Define la altura de los campos de texto */
+  border-radius: 5px; /* Bordes redondeados para los campos de texto */
+  border: 1px solid #ced4da; /* Borde gris claro para los campos de texto */
 }
 
 input.form-control:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  border-color: #007bff; /* Cambia el color del borde a azul cuando el campo de texto está seleccionado */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Agrega un brillo sutil alrededor del campo seleccionado */
 }
 
 button#login-button {
-  height: 45px;
-  font-size: 1rem;
-  font-weight: bold;
+  height: 45px; /* Establece la altura del botón de login */
+  font-size: 1rem; /* Tamaño de fuente del botón */
+  font-weight: bold; /* Hace el texto del botón en negrita */
 }
 
 .register-link {
-  color: #007bff;
-  text-decoration: none;
+  color: #007bff; /* Establece el color azul para el enlace de registro */
+  text-decoration: none; /* Elimina el subrayado por defecto del enlace */
 }
 
 .register-link:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* Añade un subrayado al pasar el cursor sobre el enlace */
 }

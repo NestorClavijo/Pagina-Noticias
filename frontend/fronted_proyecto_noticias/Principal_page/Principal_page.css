@@ -1,41 +1,41 @@
 /* Fondo general */
 body {
-  background-color: #f4f4f9;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
+  background-color: #f4f4f9; /* Establece un color de fondo claro para toda la página */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define la fuente a usar, con una fuente sans-serif moderna */
+  margin: 0; /* Elimina el margen por defecto del navegador */
+  padding: 0; /* Elimina el relleno por defecto del navegador */
 }
 
 /* Ajustes al navbar */
 .navbar-brand {
-  font-size: 1.5rem;
+  font-size: 1.5rem; /* Define un tamaño de fuente grande para el nombre o logo en el navbar */
 }
 
 #btn-crear-noticia i {
-  margin-right: 5px;
+  margin-right: 5px; /* Añade un espacio a la derecha del ícono dentro del botón de crear noticia */
 }
 
 /* Sección de cards */
 .card {
-  border-radius: 8px;
-  transition: transform 0.2s ease-in-out;
+  border-radius: 8px; /* Redondea las esquinas de las tarjetas para un diseño más suave */
+  transition: transform 0.2s ease-in-out; /* Añade una transición suave cuando la tarjeta cambia de posición */
 }
 
 .card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-3px); /* Cuando el usuario pasa el cursor sobre la tarjeta, la mueve ligeramente hacia arriba */
 }
 
 .card-title {
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1.2rem; /* Establece el tamaño de la fuente del título de la tarjeta */
+  font-weight: 600; /* Hace que el título sea negrita */
 }
 
 .card-text {
-  font-size: 0.95rem;
-  color: #555;
+  font-size: 0.95rem; /* Establece un tamaño de fuente moderado para el texto dentro de la tarjeta */
+  color: #555; /* Da un color gris oscuro al texto para mayor legibilidad */
 }
 
 /* Botones */
 .btn-warning i, .btn-danger i {
-  margin-right: 5px;
+  margin-right: 5px; /* Añade un espacio a la derecha del ícono dentro de los botones de advertencia y peligro */
 }
