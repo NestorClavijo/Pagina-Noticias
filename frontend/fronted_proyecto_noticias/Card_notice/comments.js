@@ -179,4 +179,59 @@ document.getElementById('comentarios-lista').addEventListener('click', async fun
     }
 });
 
+// --- Funcionalidad de editar comentario 
+let comentarioIdSeleccionado = null;
+
+document.getElementById('comentarios-lista').addEventListener('click', function(e) {
+    const btnEditar = e.target.closest('.btn-outline-warning');
+    if (!btnEditar) return;
+
+    // Obtener el contenido del comentario actual
+    const comentarioDOM = btnEditar.closest('.comentario-item');
+    const contenido = comentarioDOM.querySelector('p.text-secondary').textContent;
+
+    // Guardar el id y contenido del comentario
+    comentarioIdSeleccionado = comentarioDOM.querySelector('button.btn-outline-danger').getAttribute('data-id');
+    document.getElementById('input-editar-comentario').value = contenido;
+
+    // Mostrar el modal
+    const modalElement = document.getElementById('modalEditarComentario');
+    const modal = new bootstrap.Modal(modalElement);
+    modal.show();
+});
+
+document.getElementById('guardar-edicion').addEventListener('click', async () => {
+    const nuevoTexto = document.getElementById('input-editar-comentario').value;
+    const token = localStorage.getItem('token');
+
+    try {
+        const response = await fetch(`http://localhost:8080/api/Comentario/actualizar/${comentarioIdSeleccionado}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify({
+                descripcion: nuevoTexto
+            })
+        });
+
+        if (!response.ok) throw new Error('Error al editar comentario');
+
+        // Cerrar el modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('modalEditarComentario'));
+        modal.hide();
+
+        // Refrescar comentarios (o actualizar solo ese comentario en el DOM)
+        obtenerComentarios();
+    } catch (error) {
+        console.error('Error al editar comentario:', error);
+        alert('No se pudo editar el comentario.');
+    }
+});
+
+
+
+
+
 
