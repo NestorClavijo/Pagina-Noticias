@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +32,7 @@ public class ComentarioController {
     @ApiResponses define las respuestas posibles para este endpoint, solo se maneja el código de respuesta 200.
     */
     @Operation(summary = "Crear un nuevo comentario para una noticia")
+    @SecurityRequirement(name = "bearerAuth")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Comentario creado con éxito")
     })
@@ -51,6 +53,7 @@ public class ComentarioController {
     @ApiResponses define las respuestas posibles para este endpoint, solo se maneja el código de respuesta 200.
     */
     @Operation(summary = "Obtener comentarios de una noticia")
+    @SecurityRequirement(name = "bearerAuth")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Comentarios obtenidos con éxito")
     })
@@ -67,6 +70,7 @@ public class ComentarioController {
     @ApiResponses define las respuestas posibles para este endpoint, solo se maneja el código de respuesta 200.
     */
     @Operation(summary = "Actualizar un comentario")
+    @SecurityRequirement(name = "bearerAuth")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Comentario actualizado con éxito")
     })
@@ -84,6 +88,7 @@ public class ComentarioController {
     @ApiResponses define las respuestas posibles para este endpoint, solo se maneja el código de respuesta 200.
     */
     @Operation(summary = "Eliminar un comentario")
+    @SecurityRequirement(name = "bearerAuth")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Comentario eliminado con éxito")
     })

@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +33,7 @@ public class CalificacionNoticiaController {
     @ApiResponses define las respuestas posibles para este endpoint, solo se maneja el código de respuesta 200.
     */
     @Operation(summary = "Crear una nueva calificación para una noticia")
+    @SecurityRequirement(name = "bearerAuth")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Calificación creada con éxito")
     })
@@ -52,6 +54,8 @@ public class CalificacionNoticiaController {
     @ApiResponses define las respuestas posibles para este endpoint, solo se maneja el código de respuesta 200.
     */
     @Operation(summary = "Obtener una calificación de una noticia")
+    @SecurityRequirement(name = "bearerAuth")
+
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Calificación obtenida con éxito")
     })
@@ -72,6 +76,7 @@ public class CalificacionNoticiaController {
     @ApiResponses define las respuestas posibles para este endpoint, solo se maneja el código de respuesta 200.
     */
     @Operation(summary = "Actualizar una calificación existente")
+    @SecurityRequirement(name = "bearerAuth")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Calificación actualizada con éxito")
     })
@@ -89,6 +94,8 @@ public class CalificacionNoticiaController {
     @ApiResponses define las respuestas posibles para este endpoint, solo se maneja el código de respuesta 200.
     */
     @Operation(summary = "Eliminar una calificación existente")
+    @SecurityRequirement(name = "bearerAuth")
+
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Calificación eliminada con éxito")
     })

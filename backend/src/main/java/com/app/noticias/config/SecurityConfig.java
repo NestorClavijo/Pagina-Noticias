@@ -35,7 +35,22 @@ public class SecurityConfig {
                 // Configurar la autorización para las rutas
                 .authorizeHttpRequests(authRequest ->
                         authRequest
-                                .requestMatchers("/swagger.html","/swagger-ui/", "/swagger-ui.html", "/docs/", "/v3/api-docs/","/auth/**").permitAll()
+                                .requestMatchers(
+                                        "/swagger.html",
+                                        "/swagger-ui/*",
+                                        "/swagger-ui.html",
+                                        "/swagger-ui/**",
+                                        "/docs/",
+                                        "/v3/api-docs/*",
+                                        "/v3/api-docs/**",
+                                        "/v3/api-docs.yaml",
+                                        "/swagger-resources",
+                                        "/swagger-resources/**",
+                                        "/configuration/ui",
+                                        "/configuration/security",
+                                        "/webjars/**",
+                                        "/auth/**"
+                                ).permitAll()
                                 .anyRequest().authenticated()
                 )
                 // Configurar la gestión de sesiones para que sea sin estado
